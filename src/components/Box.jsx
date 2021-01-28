@@ -1,30 +1,46 @@
 
 
 import React from "react";
-import "../styles/global.css";
-// import "./App.css";
 
 class Box extends React.Component {
+
   render() {
-    return (
-      <div className ="box col-sm-3 col-6">
-      <span className ="material-icons"  style = {{color : this.props.color , fontSize : 100}} >
-        {this.props.icon}
-       </span>
-
-       <p>  
-            valeur : {this.props.value}
-            unité : {this.props.unit}
-       </p>
-        
-       
-      
-      </div>
-    )
  
+   if(this.props.icon === "local_drink" ){
+
+      return (
+         <div className ="box col-sm-3 col-6">
+            <span className ="material-icons" style = {{color : this.props.color , fontSize : 100}} >
+              {this.props.icon}
+            </span>
    
+            <p>  
+               valeur : {this.props.value}
+               unité : {this.props.unit}
+            </p>
+         
+         </div>
+      )
+   }else{
 
-  }
-}
+      return (
+         <div className ="box col-sm-3 col-6">
+            <span className ="material-icons" style = {{color : this.props.color , fontSize : 100}} >
+              {this.props.icon}
+            </span>
+   
+            <p>  
+               valeur : {this.props.value}
+               unité : {this.props.unit}
+            </p>
 
-export default  Box;
+            <input type="range" min="0" max="" value="" oninput="" />
+         
+         </div>
+      )
+
+   }
+    
+}};
+
+export default Box;
