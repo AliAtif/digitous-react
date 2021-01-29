@@ -23,14 +23,25 @@ export class App extends React.Component {
     };
   };
 
-  // onHeartChange (){
+  onHeartChange = (value) =>{
+    console.log(value.target.value);
+    this.setState({
+      heart : value.target.value,
+    })
+   
+  };
 
-  //   this.state.heart = {
-  //     min:  heartMin,
-  //     max: heartMax,
-  //     onChange: onHeartChange()
-  //   }
-  // };
+  onStepsChange= value =>{console.log(value.target.value)
+    this.setState({ steps:value.target.value})
+  };
+
+  onTemperatureChange = (value) =>{
+    console.log(value.target.value);
+    this.setState({
+      temperature : value.target.value,
+    })
+   
+  };
    
 
   render() {
@@ -43,10 +54,10 @@ export class App extends React.Component {
           <p> Temperature :{tempMin}</p>
           <p> Steps:{stepsMin}</p>
 
-        < Box icon ={"local_drink"} color={"#3A85FF"} value={1.5}  unit={"L"} />
-        < Box icon ={"directions_walk"} color= "#000000" value = {3000} unit = {"steps"}/>
-        < Box icon = {"favorite"} color = {"#ff0000"}value= {120} unit ={"bpm"} />
-        < Box icon = {"wb_sunny"} color = {"#ffff00"} value = {-10} unit ={"°C"}/>
+        < Box icon ={"local_drink"} color={"#3A85FF"} value={1.5}  unit={"L"}  />
+        < Box icon ={"directions_walk"} color= "#000000" value = {this.state.steps} unit = {"steps"} min={stepsMin} max={stepsMax} onChange = {this. onStepsChange} />
+        < Box icon = {"favorite"} color = {"#ff0000"}value= {this.state.heart} unit ={"bpm"} min={heartMin} max= {heartMax} onChange = {this.onHeartChange} />
+        < Box icon = {"wb_sunny"} color = {"#ffff00"} value = {this.state.temperature} unit ={"°C"} min={tempMin} max= {tempMax} onChange = {this.onTemperatureChange} />
 
         </div>
        

@@ -34,7 +34,7 @@ class Box extends React.Component {
                unité : {this.props.unit}
             </p>
 
-            <input type="range" min="0" max="" value="" oninput="" />
+            <input type="range" min={this.props.min} max={this.props.max} value={this.props.value} onInput={this.props.onChange} />
          
          </div>
       )
